@@ -9,13 +9,4 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true
   },
-  server: {
-    port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:54321',
-        changeOrigin: true,
-      },
-    },
-  },
 })
