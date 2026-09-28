@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "vite",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "outputDirectory": "dist",
+  "routes": [
+    {
+      "src": "/api/webhooks/resend",
+      "dest": "/api/webhooks/resend",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/health",
+      "dest": "/health",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
