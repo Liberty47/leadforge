@@ -133,12 +133,13 @@ export class CategoryService {
   async addCategoryToLead(leadId: string, categoryId: string): Promise<void> {
     await supabase
       .from('lead_categories')
-      .insert({
-        lead_id: leadId,
-        category_id: categoryId,
-      })
-      .onConflict('lead_id, category_id')
-      .ignore()
+      .upsert(
+        {
+          lead_id: leadId,
+          category_id: categoryId,
+        },
+        { onConflict: 'lead_id,category_id', ignoreDuplicates: true },
+      )
   }
 
   async removeCategoryFromLead(leadId: string, categoryId: string): Promise<void> {

@@ -166,6 +166,10 @@ export interface SearchParams {
   status?: LeadStatus
   industry?: string
   location?: string
+  has_email?: boolean
+  campaign_id?: string
+  date_from?: string
+  date_to?: string
   page?: number
   per_page?: number
   sort_by?: string
@@ -247,6 +251,7 @@ export interface LeadSearchResult {
   industry?: string
   description?: string
   email?: string
+  phone?: string
 }
 
 // Business Category Types

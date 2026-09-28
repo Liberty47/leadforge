@@ -7,6 +7,7 @@ import { Card, CardContent } from '../../components/ui/Card'
 import { Input } from '../../components/ui/Input'
 import { Label } from '../../components/ui/Label'
 import { Search, Filter, Plus, MoreVertical, Trash2, Mail } from 'lucide-react'
+import { LeadStatus } from '../../types'
 
 export function LeadsPage() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -23,7 +24,7 @@ export function LeadsPage() {
     if (filterStatus) params.status = filterStatus
     if (filterIndustry) params.industry = filterIndustry
     setSearchParams(params)
-    setStoreSearchParams({ search: searchQuery, status: filterStatus || undefined, industry: filterIndustry || undefined })
+    setStoreSearchParams({ search: searchQuery, status: (filterStatus || undefined) as LeadStatus | undefined, industry: filterIndustry || undefined })
   }, [searchQuery, filterStatus, filterIndustry, setSearchParams, setStoreSearchParams])
 
   const handleDelete = async (id: string) => {

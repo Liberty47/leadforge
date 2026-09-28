@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card'
 
 export function CampaignDetailPage() {
   const { id } = useParams()

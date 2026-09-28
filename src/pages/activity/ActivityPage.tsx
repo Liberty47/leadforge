@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Ca
 import { Badge } from '../../components/ui/Badge'
 import { Search, Filter } from 'lucide-react'
 import { Input } from '../../components/ui/Input'
+import { Button } from '../../components/ui/Button'
 
 const demoActivity = [
   {

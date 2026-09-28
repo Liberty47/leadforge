@@ -131,7 +131,7 @@ export function CampaignCreatePage() {
                     placeholder="Hello {business_name},&#10;&#10;..."
                   />
                   <div className="text-sm text-muted-foreground">
-                    Use <code className="bg-muted px-1 rounded"> {business_name} </code> for personalization
+                    Use <code className="bg-muted px-1 rounded">{'{business_name}'}</code> for personalization
                   </div>
                 </div>
               </div>
@@ -269,4 +269,3 @@ export function CampaignCreatePage() {
   )
 }
 
-import { Link } from 'react-router-dom'

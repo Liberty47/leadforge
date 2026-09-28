@@ -9,7 +9,12 @@ import { Input } from '../../components/ui/Input'
 import { Label } from '../../components/ui/Label'
 import { ArrowLeft, Mail, Phone, Globe, MapPin, Trash2, CheckCircle2, AlertCircle } from 'lucide-react'
 
-export function LeadDetailPage() {
+interface LeadDetailPageProps {
+  createMode?: boolean
+}
+
+export function LeadDetailPage({ createMode = false }: LeadDetailPageProps) {
+  void createMode
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
