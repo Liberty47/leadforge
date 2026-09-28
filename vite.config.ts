@@ -1,25 +1,12 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
-
-  return {
+export default defineConfig({
   plugins: [react()],
   base: '/',
+  // Expose the project's public Supabase variables without replacing them with
+  // empty build-time constants when Vite cannot read the deployment env file.
   envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
-  define: {
-    'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(
-      env.VITE_SUPABASE_URL || env.NEXT_PUBLIC_SUPABASE_URL || env.SUPABASE_URL || '',
-    ),
-    'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(
-      env.VITE_SUPABASE_ANON_KEY ||
-        env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-        env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-        env.SUPABASE_ANON_KEY ||
-        '',
-    ),
-  },
   server: {
     allowedHosts: ['.vercel.run', '.vercel.app'],
   },
@@ -31,5 +18,4 @@ export default defineConfig(({ mode }) => {
     assetsDir: 'assets',
     emptyOutDir: true,
   },
-  }
 })
